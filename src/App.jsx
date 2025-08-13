@@ -3,8 +3,8 @@ import Layout from "./Layout";
 import Main from "./Pages/Main";
 import News from "./Pages/News";
 import MyAdmin from "./Pages/MyAdmin";
-import LayoutPanel from "./LayoutPanel.jsx";
-import ProtectedRoute from "./Pages/ProtectedRoute.jsx"
+import LayoutPanel from "./Admin/LayoutPanel.jsx";
+
 import Footer from "./components/Footer.jsx";
 import LayoutPostis from "./LayoutPostis.jsx";
 
@@ -27,11 +27,11 @@ export default function App() {
 
 
       <Route
-        path="/adminlogin"
+        path="/AdminPanel"
         element={
-          <ProtectedRoute>
+         
             <LayoutPanel />
-          </ProtectedRoute>
+        
         }
       />
     </Routes>

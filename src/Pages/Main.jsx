@@ -8,10 +8,9 @@ import Footer from "../components/Footer.jsx";
 import Part from "../components/Part.jsx";
 import NewsPage from "../Pages/News.jsx";
 import MyAdmin from "./MyAdmin.jsx";
-import { useRef } from "react";
+
 export default function Main() {
-  const aboutRef = useRef(null);
-  const singRef = useRef(null);
+
 
   return (
     <>

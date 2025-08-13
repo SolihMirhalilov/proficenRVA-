@@ -4,37 +4,13 @@ import { useNavigate } from "react-router-dom";
 export default function MyAdmin() {
   const [text, setText] = useState("");
   const [pass, setPass] = useState("");
-  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false); // 👁 состояние глазка
-  const navigate = useNavigate();
+  const Navigate = useNavigate()
 
-  const handleLogin = async () => {
-    setError("");
+  const handleClick = () => {
+    Navigate('/AdminPanel')
+  }
 
-    try {
-      const response = await fetch("http://127.0.0.1:8000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: text,
-          password: pass,
-        }),
-      });
-
-      if (response.status === 200) {
-        const data = await response.json();
-        localStorage.setItem("token", data.access_token); 
-        navigate("/adminlogin"); 
-      } else {
-        const data = await response.json();
-        setError(data.detail || "Ошибка входа");
-      }
-    } catch (err) {
-      setError("Сервер не отвечает");
-    }
-  };
 
   return (
     <section>
@@ -45,7 +21,7 @@ export default function MyAdmin() {
           Enter your username and password to sign in
         </p>
 
-        {error && <p className="text-red-500 mt-2">{error}</p>}
+    
 
         {/* Поле username */}
         <input
@@ -81,10 +57,11 @@ export default function MyAdmin() {
         {/* Кнопка входа */}
         <button
           className="w-full bg-blue-500 mt-4 text-white font-bold rounded-xl py-3"
-          onClick={handleLogin}
+          onClick={handleClick}
         >
           Sign In
         </button>
+
       </div>
     </section>
   );
